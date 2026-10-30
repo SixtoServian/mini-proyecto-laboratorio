@@ -97,3 +97,9 @@ El PR revisado por otro grupo es evidencia del TP Integrador.
   deuda nueva.
 - **Se documenta la consecuencia negativa.** Un patrón sin contras analizadas
   es sobreingeniería esperando su turno.
+
+## Colaboración
+- Trabajo grupal de Abraham Fernandez y Sixto Servian.
+- Revisión cruzada: Abraham Fernandez (usuario GitHub: @AbrahamDF90), quien
+  aprobó y mergeó los 11 PRs.
+- Las ramas se conservan para preservar el historial de revisión.
