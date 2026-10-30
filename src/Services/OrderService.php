@@ -19,10 +19,8 @@ class OrderService
         if (trim($paciente) === '') { echo 'Falta el paciente<br>'; return; }
         if ($monto <= 0) { echo 'Monto invalido<br>'; return; }
 
-        // El precio ahora se calcula con Strategy
         $total = (new PriceCalculator())->calcular($monto, $tipoPaciente);
         
-        // El modelo ahora es inmutable y la persistencia va al Repositorio
         $order = new Order($id, $paciente, $total, $tipoPaciente);
         (new OrderRepository())->save($order);
 
