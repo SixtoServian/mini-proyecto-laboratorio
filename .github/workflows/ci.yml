@@ -1,0 +1,30 @@
+name: CI - PHPUnit
+
+on:
+  push:
+    branches: [ "develop", "main" ]
+  pull_request:
+    branches: [ "develop", "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Clonar repositorio
+      uses: actions/checkout@v4
+
+    - name: Configurar PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.4'
+        tools: composer, phpunit
+
+    - name: Instalar dependencias
+      run: composer install --no-progress --prefer-dist
+
+    - name: Ejecutar Lint (Chequeo de sintaxis)
+      run: find src/ -name "*.php" -exec php -l {} \;
+
+    - name: Ejecutar Pruebas
+      run: vendor/bin/phpunit tests/
